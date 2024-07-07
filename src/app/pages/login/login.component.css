@@ -1,0 +1,52 @@
+.tela-inteira {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container-login {
+  width: 350px;
+  padding-bottom: 20px;
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  align-items: center;
+  background-color: white;
+  max-width: 90%;
+}
+
+.login-content {
+  font-family: DM Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
+}
+
+.button {
+  font-family: DM Roboto, sans-serif;
+  font-size: 16px;
+  padding: 0px;
+  text-decoration: none;
+  text-align: center;
+  background: #4AB0D9;
+  color: white;
+  width: 120px;
+  height: 30px;
+  display: block;
+  border: none;
+  border-radius: 50px 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+mat-form-field{
+  width: 248px;
+}

@@ -1,34 +1,30 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import { LoginComponent } from './pages/login/login.component';
-import {CommonModule} from "@angular/common";
 import {MatCardModule} from "@angular/material/card";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTableModule} from "@angular/material/table";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {MatSelectModule} from "@angular/material/select";
-import {LoginModule} from "./pages/login/login.module";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {LoginComponent} from "./login.component";
+import {BrowserModule} from "@angular/platform-browser";
+import {HttpClient} from "@angular/common/http";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    LoginComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
     CommonModule,
+    BrowserAnimationsModule,
     FormsModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -41,10 +37,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     MatTableModule,
     RouterOutlet,
     RouterLink,
-    MatSelectModule,
-    LoginModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    MatSelectModule
+  ]
 })
-export class AppModule { }
+export class LoginModule { }

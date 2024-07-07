@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled ~ .mdc-checkbox__background {
+  border-color: #4b9fcf !important;
+  background-color: #4b9fcf !important;
+}
+
+html {
+  --mdc-filled-text-field-caret-color: #4b9fcf !important;
+  --mdc-filled-text-field-focus-active-indicator-color: #4b9fcf !important;
+  --mdc-filled-text-field-focus-label-text-color: #4b9fcf !important;
+  --mdc-outlined-text-field-focus-outline-color: #4b9fcf !important;
+  --mdc-outlined-text-field-focus-label-text-color: #4b9fcf !important;
+  --mdc-outlined-text-field-caret-color: #4b9fcf !important;
+  --mat-option-selected-state-label-text-color: #4b9fcf !important;
+  --mat-datepicker-toggle-active-state-icon-color: #4b9fcf !important;
+  --mat-select-focused-arrow-color: #4b9fcf !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: #4b9fcf !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-container-color: #4b9fcf !important;
+}
+
+.mat-mdc-radio-button.mat-primary {
+  --mdc-radio-selected-focus-icon-color: #4b9fcf !important;
+  --mdc-radio-selected-hover-icon-color: #4b9fcf !important;
+  --mdc-radio-selected-icon-color: #4b9fcf !important;
+  --mdc-radio-selected-pressed-icon-color: #4b9fcf !important;
+  --mat-radio-checked-ripple-color: #4b9fcf !important;
+}
+
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+  --mdc-tab-indicator-active-indicator-color: #4b9fcf !important;
+  --mat-tab-header-active-label-text-color: #4b9fcf !important;
+  --mat-tab-header-active-ripple-color: #4b9fcf !important;
+  --mat-tab-header-inactive-ripple-color: #4b9fcf !important;
+  --mat-tab-header-active-focus-label-text-color: #4b9fcf !important;
+  --mat-tab-header-active-hover-label-text-color: #4b9fcf !important;
+  --mat-tab-header-active-focus-indicator-color: #4b9fcf !important;
+  --mat-tab-header-active-hover-indicator-color: #4b9fcf !important;
+}
+
+.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
+  color: #4b9fcf !important;
+}
+
+.mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
+  color: #4b9fcf !important;
+}
