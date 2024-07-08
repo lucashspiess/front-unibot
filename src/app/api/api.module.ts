@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { ResponseControllerService } from './services/response-controller.service';
+import { StudentControllerService } from './services/student-controller.service';
 import { InstitutionControllerService } from './services/institution-controller.service';
 
 /**
@@ -16,6 +17,7 @@ import { InstitutionControllerService } from './services/institution-controller.
   declarations: [],
   providers: [
     ResponseControllerService,
+    StudentControllerService,
     InstitutionControllerService,
     ApiConfiguration
   ],
