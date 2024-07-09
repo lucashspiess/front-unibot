@@ -19,7 +19,7 @@ RUN npm run build-docker -- --configuration=${configuration} --base-href /
 FROM nginx:alpine
 #VOLUME [ "/var/cache/nginx" ]
 RUN ls -la .
-COPY --from=builder /app/dist/aula01-frontend/browser/* /usr/share/nginx/html/
+COPY --from=builder /app/pages/login/* /usr/share/nginx/html/
 COPY ./docker-conf /etc/nginx/conf.d/
 
 EXPOSE 80
