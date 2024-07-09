@@ -19,10 +19,13 @@ import {RouterLink, RouterOutlet} from "@angular/router";
 import {MatSelectModule} from "@angular/material/select";
 import {LoginModule} from "./pages/login/login.module";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {ConfirmationDialog} from "./core/confirmation-dialog/confirmation-dialog.component";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfirmationDialog
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     RouterOutlet,
     RouterLink,
     MatSelectModule,
-    LoginModule
+    LoginModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

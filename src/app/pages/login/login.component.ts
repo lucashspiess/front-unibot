@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
+import {AfterViewInit, Component, HostListener, Inject, OnInit} from '@angular/core';
 
 
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -12,6 +12,8 @@ import {Institution} from "../../api/models/institution";
 import {InstitutionControllerService} from "../../api/services/institution-controller.service";
 import {ActivatedRoute} from "@angular/router";
 import {MatOptionSelectionChange} from "@angular/material/core";
+import { DOCUMENT } from '@angular/common';
+import {ConfirmationDialog} from "../../core/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: 'app-root',
@@ -25,7 +27,9 @@ export class LoginComponent implements OnInit{
   saudation!: string | undefined;
 
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private route: ActivatedRoute,
+    private dialog: MatDialog,
     private service: ResponseControllerService,
     private institutionService: InstitutionControllerService,
     private formBuilder: FormBuilder) {
@@ -70,10 +74,25 @@ export class LoginComponent implements OnInit{
     const phoneNumber = parseInt(<string>this.route.snapshot.paramMap.get('id'));
     this.service.responseControllerLogin({phoneNumber: phoneNumber, body:login}).subscribe(data =>
     console.log(data))
+    this.confirmarAcao();
   }
 
   public handleError = (controlName: string, errorName: string) => {
     return this.formGroup.controls[controlName].hasError(errorName);
   };
+
+  confirmarAcao() {
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
+      data: {
+        titulo: 'Sucesso',
+        mensagem: `Autenticação realizada, você será redirecionado para o WhatsApp.`,
+        textoBotoes: {
+          ok: 'Ok',
+        },
+      },
+    }).afterClosed().subscribe(()=>{
+      this.document.location.href = 'https://wa.me/556282623311?text=autenticado';
+    });
+  }
 
 }
