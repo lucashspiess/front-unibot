@@ -77,9 +77,8 @@ export class LoginComponent implements OnInit{
     console.log(data)
     this.confirmarAcao("Sucesso", "Autenticação realizada, você será redirecionado para o WhatsApp.")
     }, error => {
-      console.log(error.message)
-        this.confirmarAcao("Erro",
-          "Erro ao realizar autenticação, verifique se o usuário e a senha foram informados corretamente.")
+      console.log("Erro: ",error.message)
+        this.confirmarErro();
       }
     )
   }
@@ -100,6 +99,18 @@ export class LoginComponent implements OnInit{
     }).afterClosed().subscribe(()=>{
       this.document.location.href = 'https://wa.me/556282623311?text=autenticado';
     });
+  }
+
+  confirmarErro(){
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
+      data: {
+        titulo: "Erro",
+        mensagem: "Erro ao realizar autenticação, verifique se o usuário e a senha foram informados corretamente.",
+        textoBotoes: {
+          ok: 'Ok',
+        },
+      },
+    })
   }
 
 }
