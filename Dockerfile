@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build --prod
 
 #RUN npm start
-#EXPOSE 80
+EXPOSE 80
 #RUN npm run build-docker -- --configuration=${configuration} --base-href /
 
 # stage 2
