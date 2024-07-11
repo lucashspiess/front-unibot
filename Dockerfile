@@ -9,17 +9,20 @@ FROM node:alpine AS builder
 ARG configuration=production
 
 WORKDIR /app
-COPY package.json package.json
-RUN npm install
 COPY . .
+RUN npm install
+RUN npm install @angular/cli
+COPY package.json package.json
 
+RUN npm start
+EXPOSE 80
 RUN npm run build-docker -- --configuration=${configuration} --base-href /
 
 # stage 2
-FROM nginx:alpine
+#FROM nginx:alpine
 #VOLUME [ "/var/cache/nginx" ]
-RUN ls -la .
-COPY --from=builder /app/pages/login/* /usr/share/nginx/html/
-COPY ./docker-conf /etc/nginx/conf.d/
+RUN #ls -la .
+#COPY --from=builder /app/pages/login/* /usr/share/nginx/html/
+#COPY ./docker-conf /etc/nginx/conf.d/
 
-EXPOSE 80
+
