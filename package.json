@@ -3,8 +3,6 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "ng-openapi-gen": "ng-openapi-gen",
-    "ng-openapi-gen-server": "ng-openapi-gen -c ng-openapi-gen-server.json",
     "start": "npm run ng -- serve",
     "build": "npm run ng-openapi-gen-server && npm run ng -- build --configuration production",
     "watch": "ng build --watch --configuration development",

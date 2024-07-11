@@ -21,8 +21,8 @@ EXPOSE 80
 # stage 2
 FROM nginx:alpine
 VOLUME [ "/var/cache/nginx" ]
-RUN -it --rm -v /usr/share/nginx/html/* nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html/
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/dist/login-front/browser/* /usr/share/nginx/html/
 COPY ./docker-conf /etc/nginx/conf.d/
 
 
