@@ -14,6 +14,7 @@ import {ActivatedRoute} from "@angular/router";
 import {MatOptionSelectionChange} from "@angular/material/core";
 import { DOCUMENT } from '@angular/common';
 import {ConfirmationDialog} from "../../core/confirmation-dialog/confirmation-dialog.component";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-root',
@@ -72,20 +73,26 @@ export class LoginComponent implements OnInit{
   public onSubmit(): void {
     const login: LoginDto = this.formGroup.value;
     const phoneNumber = parseInt(<string>this.route.snapshot.paramMap.get('id'));
-    this.service.responseControllerLogin({phoneNumber: phoneNumber, body:login}).subscribe(data =>
-    console.log(data))
-    this.confirmarAcao();
+    this.service.responseControllerLogin({phoneNumber: phoneNumber, body:login}).subscribe(data =>{
+    console.log(data)
+    this.confirmarAcao("Sucesso", "Autenticação realizada, você será redirecionado para o WhatsApp.")
+    }, error => {
+      console.log(error.message)
+        this.confirmarAcao("Erro",
+          "Erro ao realizar autenticação, verifique se o usuário e a senha foram informados corretamente.")
+      }
+    )
   }
 
   public handleError = (controlName: string, errorName: string) => {
     return this.formGroup.controls[controlName].hasError(errorName);
   };
 
-  confirmarAcao() {
+  confirmarAcao(titulo: string, mensagem: string) {
     const dialogRef = this.dialog.open(ConfirmationDialog, {
       data: {
-        titulo: 'Sucesso',
-        mensagem: `Autenticação realizada, você será redirecionado para o WhatsApp.`,
+        titulo: titulo,
+        mensagem: mensagem,
         textoBotoes: {
           ok: 'Ok',
         },
