@@ -9,20 +9,20 @@ FROM node:alpine AS builder
 ARG configuration=production
 
 WORKDIR /app
-COPY package.json /app
+COPY package.json package.json
 RUN npm install
 COPY . .
-RUN npm run build --prod
+RUN #npm run build --prod
 
 #RUN npm start
-EXPOSE 80
-#RUN npm run build-docker -- --configuration=${configuration} --base-href /
+RUN npm run build-docker -- --configuration=${configuration} --base-href /
 
 # stage 2
 FROM nginx:alpine
-VOLUME [ "/var/cache/nginx" ]
-RUN rm -rf /usr/share/nginx/html/*
+#VOLUME [ "/var/cache/nginx" ]
+RUN #rm -rf /usr/share/nginx/html/*
+RUN ls -la .
 COPY --from=builder /app/dist/login-front/browser/* /usr/share/nginx/html/
 COPY ./docker-conf /etc/nginx/conf.d/
 
-
+EXPOSE 80
