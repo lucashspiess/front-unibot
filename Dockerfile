@@ -22,7 +22,7 @@ FROM nginx:alpine
 #VOLUME [ "/var/cache/nginx" ]
 RUN #rm -rf /usr/share/nginx/html/*
 RUN ls -la .
-COPY --from=builder /app/dist/login-front/browser/* /usr/share/nginx/html/
+COPY --from=builder /app/dist/* /usr/share/nginx/html/
 COPY ./docker-conf /etc/nginx/conf.d/
 
 EXPOSE 80
