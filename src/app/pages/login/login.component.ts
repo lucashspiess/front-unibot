@@ -73,14 +73,14 @@ export class LoginComponent implements OnInit{
   public onSubmit(): void {
     const login: LoginDto = this.formGroup.value;
     const phoneNumber = parseInt(<string>this.route.snapshot.paramMap.get('id'));
-    this.service.responseControllerLogin({phoneNumber: phoneNumber, body:login}).subscribe(data =>{
-    console.log(data)
-    this.confirmarAcao("Sucesso", "Autenticação realizada, você será redirecionado para o WhatsApp.")
-    }, error => {
-      console.log("Erro: ",error.message)
-        this.confirmarErro();
-      }
-    )
+    if(this.formGroup.valid){
+      this.service.responseControllerLogin({phoneNumber: phoneNumber, body:login}).subscribe(data =>{
+          this.confirmarAcao("Sucesso", "Autenticação realizada, você será redirecionado para o WhatsApp.")
+        }, error => {
+          this.confirmarErro(error.error.message);
+        }
+      )
+    }
   }
 
   public handleError = (controlName: string, errorName: string) => {
@@ -101,11 +101,11 @@ export class LoginComponent implements OnInit{
     });
   }
 
-  confirmarErro(){
+  confirmarErro(erro: string){
     const dialogRef = this.dialog.open(ConfirmationDialog, {
       data: {
         titulo: "Erro",
-        mensagem: "Erro ao realizar autenticação, verifique se o usuário e a senha foram informados corretamente.",
+        mensagem: erro,
         textoBotoes: {
           ok: 'Ok',
         },
