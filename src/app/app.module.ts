@@ -21,11 +21,15 @@ import {LoginModule} from "./pages/login/login.module";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {ConfirmationDialog} from "./core/confirmation-dialog/confirmation-dialog.component";
 import {MatDialogModule} from "@angular/material/dialog";
+import {LoaderModule} from "./core/loader/loader.module";
+import {LoaderDialogComponent} from "./core/loader-dialog/loader-dialog.component";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmationDialog
+    ConfirmationDialog,
+    LoaderDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     CommonModule,
     FormsModule,
     MatButtonModule,
+    LoaderModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -46,7 +51,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     RouterLink,
     MatSelectModule,
     LoginModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
