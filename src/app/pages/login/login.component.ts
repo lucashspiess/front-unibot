@@ -97,7 +97,7 @@ export class LoginComponent implements OnInit{
         },
       },
     }).afterClosed().subscribe(()=>{
-      this.document.location.href = 'https://wa.me/556282623311?text=autenticado';
+      this.document.location.href = 'https://wa.me/556295424184?text=autenticado';
     });
   }
 
