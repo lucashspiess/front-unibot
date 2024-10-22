@@ -15,6 +15,8 @@ import {MatOptionSelectionChange} from "@angular/material/core";
 import { DOCUMENT } from '@angular/common';
 import {ConfirmationDialog} from "../../core/confirmation-dialog/confirmation-dialog.component";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {TermoDialog} from "../termo-dialog/termo-dialog.component";
+import {ResumoDialog} from "../resumo-dialog/resumo-dialog.component";
 
 @Component({
   selector: 'app-root',
@@ -101,6 +103,18 @@ export class LoginComponent implements OnInit{
     });
   }
 
+  openDialog(titulo: string, mensagem: string){
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
+      data: {
+        titulo: titulo,
+        mensagem: mensagem,
+        textoBotoes: {
+          ok: 'Ok',
+        },
+      },
+    })
+  }
+
   confirmarErro(erro: string){
     const dialogRef = this.dialog.open(ConfirmationDialog, {
       data: {
@@ -111,6 +125,14 @@ export class LoginComponent implements OnInit{
         },
       },
     })
+  }
+
+  openTermo() {
+    const dialogRef = this.dialog.open(TermoDialog)
+  }
+
+  openResumo(){
+    const dialogRef = this.dialog.open(ResumoDialog)
   }
 
 }

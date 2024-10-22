@@ -24,12 +24,16 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {LoaderModule} from "./core/loader/loader.module";
 import {LoaderDialogComponent} from "./core/loader-dialog/loader-dialog.component";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {TermoDialog} from "./pages/termo-dialog/termo-dialog.component";
+import {ResumoDialog} from "./pages/resumo-dialog/resumo-dialog.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfirmationDialog,
-    LoaderDialogComponent
+    LoaderDialogComponent,
+    TermoDialog,
+    ResumoDialog
   ],
   imports: [
     BrowserModule,

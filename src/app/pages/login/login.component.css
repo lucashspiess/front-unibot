@@ -50,3 +50,16 @@
 mat-form-field{
   width: 248px;
 }
+
+a{
+  margin: 10px;
+}
+
+.links{
+  margin-top: 15px;
+}
+
+.link{
+  text-underline: #4AB0D9;
+  color: #4AB0D9;
+}
